@@ -1,7 +1,18 @@
-print(1)
+
 
 # User starts in (1,1) only being able to move (N)orth
-# def tile_placement (x,y)
+x, y = 1, 1
+
+def displacement(user_input):
+    if user_input == 'n':
+        return 1, 0
+    if user_input == 's':
+        return -1, 0
+    if user_input == 'e':
+        return 0, 1
+    if user_input == 'w':
+        return 0, -1
+
 # if y = 1 the user can only move (N)orth
 # if y = 2 the user can move (S)outh
 # if x = 1 and y != 1 the user can move right
