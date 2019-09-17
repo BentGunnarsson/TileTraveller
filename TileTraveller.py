@@ -30,7 +30,8 @@ while True:
 if x, y == 1, 1 or x, y == 2, 1 or x, y == 3, 1:
     print("You can travel: (N)orth.")
     while True:
-        direction = input('Direction: ').lower
+        direction = input('Direction: ')
+        direction = direction.lower
         if direction == 'n':
             break
         else:
