@@ -13,6 +13,17 @@ def displacement(user_input):
     if user_input == 'w':
         return 0, -1
 
+def can_move(n):
+    n == 'n':
+"""        
+while True:
+    direction = input('Direction: ').lower
+    if direction == 'e' or direction == 'w' or directio == 'n' or direction == 's':
+        break
+    else:
+        print('Not a valid direction!')
+"""
+
 # if y = 1 the user can only move (N)orth
 # if y = 2 the user can move (S)outh
 # if x = 1 and y != 1 the user can move right
