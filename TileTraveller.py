@@ -1,5 +1,3 @@
-print(1)
-
 # User starts in (1,1) only being able to move (N)orth
 # def tile_placement (x,y)
 # if y = 1 the user can only move (N)orth
