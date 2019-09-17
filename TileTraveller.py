@@ -3,16 +3,17 @@ x, y = 1, 1
 
 def displacement(user_input):
     if user_input == 'n':
-        return 1, 0
+        return x+1, y+0
     if user_input == 's':
-        return -1, 0
+        return x-1, y+0
     if user_input == 'e':
-        return 0, 1
+        return x+0, y+1
     if user_input == 'w':
-        return 0, -1
+        return x+0, y-1
 
 
-"""        
+
+"""
 while True:
     direction = input('Direction: ').lower
     if direction == 'e' or direction == 'w' or direction == 'n' or direction == 's':
@@ -26,7 +27,7 @@ while True:
 # if x = 1 and y != 1 the user can move right
 
 # (1,1)     N           PAR.2
-if (x, y) == (1, 1) or (x, y) == (2, 1) or (x, y) == (3, 1):
+if x, y == 1, 1 or x, y == 2, 1 or x, y == 3, 1:
     print("You can travel: (N)orth.")
     while True:
         direction = input('Direction: ').lower
@@ -35,7 +36,7 @@ if (x, y) == (1, 1) or (x, y) == (2, 1) or (x, y) == (3, 1):
         else:
             print('Not a valid direction!')
     x, y += displacement(direction)
-
+"""
 # (1,2)     N S E
 elif (x, y) == (1, 2):
     print("You can travel: (N)orth, (S)outh or (E)ast.")
