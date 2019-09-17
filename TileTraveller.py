@@ -11,12 +11,11 @@ def displacement(user_input):
     if user_input == 'w':
         return 0, -1
 
-def can_move(n):
-    n == 'n':
+
 """        
 while True:
     direction = input('Direction: ').lower
-    if direction == 'e' or direction == 'w' or directio == 'n' or direction == 's':
+    if direction == 'e' or direction == 'w' or direction == 'n' or direction == 's':
         break
     else:
         print('Not a valid direction!')
@@ -27,30 +26,74 @@ while True:
 # if x = 1 and y != 1 the user can move right
 
 # (1,1)     N           PAR.2
-if x,y == 1,1 or x,y == 2,1 or x,y == 3,1:
+if (x, y) == (1, 1) or (x, y) == (2, 1) or (x, y) == (3, 1):
     print("You can travel: (N)orth.")
+    while True:
+        direction = input('Direction: ').lower
+        if direction == 'n':
+            break
+        else:
+            print('Not a valid direction!')
+    x, y += displacement(direction)
+
 # (1,2)     N S E
-if x,y == 1,2:
+elif (x, y) == (1, 2):
     print("You can travel: (N)orth, (S)outh or (E)ast.")
+    while True:
+    direction = input('Direction: ').lower
+    if direction == 'e' or or direction == 'n' or direction == 's':
+        break
+    else:
+        print('Not a valid direction!')
+    x, y += displacement(direction)
 # (1,3)       S E
-if x,y == 1,3:
+elif (x, y) == (1, 3):
     print("You can travel: (S)outh or (E)ast.")
+    while True:
+        direction = input('Direction: ').lower
+        if direction == 'e' or direction == 's':
+            break
+        else:
+            print('Not a valid direction!')
+    x, y += displacement(direction)
 
 # (2,1)     N           PAR.2 
 # (2,2)       S   W 
-if x,y == 2,2:
+elif (x, y) == (2, 2:
     print("You can travel: (S)outh or (W)est.")
+    while True:
+        direction = input('Direction: ').lower
+        if direction == 'w' or direction == 's':
+            break
+        else:
+            print('Not a valid direction!')
+    x, y += displacement(direction)
 # (2,3)         E W
-if x,y == 2,3:
+elif x, y == 2, 3:
     print("You can travel: (E)ast or (W)est.")
+    while True:
+        direction = input('Direction: ').lower
+        if direction == 'e' or direction == 'w':
+            break
+        else:
+            print('Not a valid direction!')
+    x, y += displacement(direction)
 
 # (3,1)     N           PAR.2
 # (3,2)     N S
-if x,y == 3,2:
+elif (x, y) == (3, 2):
     print("You can travel: (N)orth or (S)outh.")
+    while True:
+        direction = input('Direction: ').lower
+        if direction == 'e' or direction == 'w' or direction == 'n' or direction == 's':
+            break
+        else:
+            print('Not a valid direction!')
+    x, y += displacement(direction)
 # (3,3)       VICTORY
-if x,y == 3,3:
+elif (x, y) == (3, 3):
     print("Victory!")
+    break
 
 
 # Print out "You can travel", available_direction
