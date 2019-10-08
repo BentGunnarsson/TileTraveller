@@ -1,6 +1,6 @@
 """
-Inner most list take the form [N, E, S, W] 
-where 1 means he can go in a given direction and 0 means he cant.
+Inner most list take the form [N, E, S, W, Lever Boolean]  
+where 1 means he can go in a given direction and 0 means he cant and lever bool says wether we prompt the user for a lever pull or not.
 Inside the list there are 3 major lists each representing values according to what x is
 inside those major list there are further more 3 more list that each represent values according to what y is  
 
@@ -60,8 +60,8 @@ x_index, y_index = 0, 0
 coins = 0
 
 while True:
-    print(possible_moves(x_index, y_index))
     while True:
+        print(possible_moves(x_index, y_index))
         user_input = input('Direction: ').lower()
         if input_checker(user_input):
             if user_input == 'n':
@@ -74,10 +74,15 @@ while True:
                 x_index -= 1
             if lever_check(x_index, y_index):
                 coins += 1
-                print('You recieved 1 coin, your total is now {}.'.format(coins))
+                print('You received 1 coin, your total is now {}.'.format(coins))
             break
         print('Not a valid direction!')
     #We win
     if x_index == 2 and y_index == 0:   #equal to 3, 1 on the picture
-        print('Victory!')
-        break
+        print('Victory! Total coins ' + str(coins) + '.')
+        user_input = input('Play again (y/n): ').lower()
+        if user_input == 'y':
+            x_index, y_index = 0, 0
+            coins = 0
+        else:
+            break
