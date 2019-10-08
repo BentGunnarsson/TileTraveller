@@ -14,8 +14,6 @@ possible_moves_lst = [   [ [1, 0, 0, 0], [1, 1, 1, 0], [0, 1, 1, 0] ], [ [1, 0, 
                       #y = 1        #y = 2        #y = 3
                 [ [1, 0, 0, 0], [1, 0, 1, 0], [0, 0, 1, 1] ]   ]
 
-print(possible_moves_lst[1][1])
-
 def possible_moves(x_index, y_index):
     """
     Takes two integers representing position and return which direction the player can move
