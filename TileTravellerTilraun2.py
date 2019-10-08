@@ -8,30 +8,36 @@ Comments above list are to mark where on the picture each list is
 """
                                            #x = 1                                        #x = 2
                               #y = 1       #y = 2        #y = 3           #y = 1         #y = 2       #y = 3
-possible_moves_lst = [   [ [1, 0, 0, 0], [1, 1, 1, 0], [0, 1, 1, 0] ], [ [1, 0, 0, 0], [0, 0, 1, 1], [0, 1, 0, 1] ],
+possible_moves_list = [   [ [1, 0, 0, 0, 0], [1, 1, 1, 0, 1], [0, 1, 1, 0, 0] ], [ [1, 0, 0, 0, 0], [0, 0, 1, 1, 1], [0, 1, 0, 1, 1] ],
 
                                     #x = 3
                       #y = 1        #y = 2        #y = 3
-                [ [1, 0, 0, 0], [1, 0, 1, 0], [0, 0, 1, 1] ]   ]
-
-print(possible_moves_lst[1][1])
+                [ [1, 0, 0, 0, 0], [1, 0, 1, 0, 1], [0, 0, 1, 1, 0] ]   ]
 
 def possible_moves(x_index, y_index):
     """
     Takes two integers representing position and return which direction the player can move
     """
     possiblities_str = 'You can travel: '
-    #First number in inner most list that represents wether we can travel north and etc.
-    if possible_moves_lst[x_index][y_index][0]:
+    #First number in inner most list that represents wether we can travel north and etc.+
+    if possible_moves_list[x_index][y_index][0]:
         possiblities_str += '(N)orth or '
-    if possible_moves_lst[x_index][y_index][1]:
+    if possible_moves_list[x_index][y_index][1]:
         possiblities_str += '(E)ast or '
-    if possible_moves_lst[x_index][y_index][2]:
+    if possible_moves_list[x_index][y_index][2]:
         possiblities_str += '(S)outh or '
-    if possible_moves_lst[x_index][y_index][3]:
+    if possible_moves_list[x_index][y_index][3]:
         possiblities_str += '(W)est or '
     #Remove ' or ' and add a dot at the end of the string    
     return possiblities_str[:-4] + '.'
+
+def lever_check(x_index, y_index):
+    if possible_moves_list[x_index][y_index][4]:
+        user_input = input('Pull a lever (y/n): ').lower()
+        return user_input == 'y'
+    else:
+        return False
+
 
 def input_checker(user_input):
     """
@@ -39,18 +45,19 @@ def input_checker(user_input):
     Function returns True(as 1) if user can go in that direction and False (as 0) otherwise
     """
     if user_input == 'n':
-        return possible_moves_lst[x_index][y_index][0]
+        return possible_moves_list[x_index][y_index][0]
     if user_input == 'e':
-        return possible_moves_lst[x_index][y_index][1]
+        return possible_moves_list[x_index][y_index][1]
     if user_input == 's':
-        return possible_moves_lst[x_index][y_index][2]
+        return possible_moves_list[x_index][y_index][2]
     if user_input == 'w':
-        return possible_moves_lst[x_index][y_index][3]
+        return possible_moves_list[x_index][y_index][3]
     else:
         return 0
 
 #We start counting at 0 in python, at 1,1 on the picture we are talking about index 0, 0 in the list
 x_index, y_index = 0, 0
+coins = 0
 
 while True:
     print(possible_moves(x_index, y_index))
@@ -65,6 +72,9 @@ while True:
                 y_index -= 1
             else:
                 x_index -= 1
+            if lever_check(x_index, y_index):
+                coins += 1
+                print('You recieved 1 coin, your total is now {}.'.format(coins))
             break
         print('Not a valid direction!')
     #We win
